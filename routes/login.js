@@ -18,7 +18,7 @@ router.post('/', function (req, res, next) {
       .where('username', username)
       .then((result) => {
         if (result.length !== 1) {
-          res.status(400).render('login', { errorMessage: 'Bad username' })
+          res.status(400).render('login', { errorMessage: 'Bad username. Flourine, Uranimum, Carbon, Potassium.' })
         }
         else if (bcrypt.compareSync(password, result[0].password)) {
           res.redirect('/')
@@ -30,7 +30,6 @@ router.post('/', function (req, res, next) {
   }
   else {
     res.status(400).render('login', { errorMessage: 'Must have username and password' })
-    // res.status(400).send(JSON.stringify({ message: 'Must username and password'}))
   }
 })
 
