@@ -21,6 +21,12 @@ router.post('/', function (req, res, next) {
           res.status(400).render('login', { errorMessage: 'Bad username. Flourine, Uranimum, Carbon, Potassium.' })
         }
         else if (bcrypt.compareSync(password, result[0].password)) {
+          const payload = {
+            username: username,
+            userId: result[0].id
+          }
+          const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1m' })
+          res.cookie('jwt', token)
           res.redirect('/')
         }
         else {
