@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Yo</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Login yo</h1>
+<form action="/login" method="post">
+    <div>
+        <label>Username: </label>
+        <input name="username" />
+    </div>
+    <div>
+        <label>Password: </label>
+        <input name="password" />
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+</form>
+<h2><%= errorMessage %></h2>
+</body>
+</html>
