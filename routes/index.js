@@ -20,7 +20,6 @@ router.get('/', function (req, res, next) {
   else {
     res.redirect('/login')
   }
-  res.render('index', { title: 'Express' })
 })
 
 router.post('/logout', function (req, res, next) {
